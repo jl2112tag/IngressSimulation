@@ -362,7 +362,7 @@ classdef LiquidIngressSimulator_exported < matlab.apps.AppBase
             interCon = app.InterlayerconnectivityEditField.Value;
 
             x=linspace(Rmean-4*Rsigma,Rmean+4*Rsigma,capArrayNum);
-            Rpdf = normpdf(x,Rmean,Rsigma); % capillary radius distribution function
+            Rpdf = normpdf(x,Rmean,Rsigma); % normpdf: normal probability density function (for determining the capillary radius distribution)
             dynVis = app.DynamicViscositymPasEditField.Value*10^-3;
             surTen = app.SurfaceTensionmNmEditField.Value*10^-3;
             conAng = deg2rad(app.ContactangledegEditField.Value);
@@ -496,7 +496,7 @@ classdef LiquidIngressSimulator_exported < matlab.apps.AppBase
             % Create UIFigure and hide until all components are created
             app.UIFigure = uifigure('Visible', 'off');
             app.UIFigure.Position = [100 100 1651 847];
-            app.UIFigure.Name = 'Random Number Generator';
+            app.UIFigure.Name = 'Liquid Ingress Simulator';
             app.UIFigure.Resize = 'off';
             app.UIFigure.CloseRequestFcn = createCallbackFcn(app, @UIFigureCloseRequest, true);
 
